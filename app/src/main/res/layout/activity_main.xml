@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/buttonCSE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:elevation="0dp"
+        android:text="Computer Science " />
+
+    <Button
+        android:id="@+id/buttonCE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCSE"
+        android:layout_alignStart="@+id/buttonCSE"
+        android:layout_alignEnd="@+id/buttonCSE"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@android:color/holo_red_light"
+        android:text="Civil Engineering" />
+
+    <Button
+        android:id="@+id/buttonEEE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCE"
+        android:layout_alignStart="@+id/buttonCE"
+        android:layout_alignEnd="@+id/buttonCE"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="Electrical Engineering" />
+
+    <Button
+        android:id="@+id/buicttonME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonECE"
+        android:layout_alignStart="@+id/buttonECE"
+        android:layout_alignEnd="@+id/buttonECE"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@android:color/holo_purple"
+        android:text="Mechanical Engineering" />
+
+    <Button
+        android:id="@+id/buttonECE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCE"
+        android:layout_alignStart="@+id/buttonCE"
+        android:layout_alignEnd="@+id/buttonCE"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="47dp"
+        android:background="@android:color/white"
+        android:text="Electronics and communication" />
+
+</RelativeLayout>
