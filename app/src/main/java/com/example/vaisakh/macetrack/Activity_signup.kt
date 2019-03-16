@@ -1,6 +1,7 @@
 package com.example.vaisakh.macetrack
 
 import android.app.Activity
+import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -12,6 +13,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -51,10 +53,14 @@ class Activity_signup : AppCompatActivity() {
             //check what the selected photo
             Log.d("signup", "photo selected")
 
-            selectedPhotoUri=data.data
-            var bitmap=MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
-            val BitmapDrawable= BitmapDrawable(bitmap)
-            select_photo.setBackgroundDrawable(BitmapDrawable)
+           selectedPhotoUri=data.data
+            val bitmap=MediaStore.Images.Media.getBitmap(contentResolver,selectedPhotoUri)
+
+            select_photo_frame.setImageBitmap(bitmap)
+            select_photo.alpha=0f
+            // val bitmapDrawable=BitmapDrawable(bitmap)
+            //select_photo.setBackgroundDrawable(bitmapDrawable)
+
         }
     }
 
@@ -84,7 +90,7 @@ class Activity_signup : AppCompatActivity() {
                     if (!it.isSuccessful) return@addOnCompleteListener
 
                     Toast.makeText(this,"Sucessfully Registerd",Toast.LENGTH_LONG).show()
-                    uploadImage()       //method for uploading image
+                   // uploadImage()       //method for uploading image
 
                 }
                 .addOnFailureListener{
@@ -105,6 +111,7 @@ class Activity_signup : AppCompatActivity() {
         if (selectedPhotoUri == null) return
         val filename =UUID.randomUUID().toString()              //to create unique id, use UUID
         val ref = FirebaseStorage.getInstance().getReference("/images/$filename") //Storing images to a directory with file name
+
             //ref is reference for firebase
         ref.putFile(selectedPhotoUri!!)
                 .addOnSuccessListener {
@@ -114,8 +121,32 @@ class Activity_signup : AppCompatActivity() {
                     ref.downloadUrl.addOnSuccessListener {
 
                         Log.d("signup","File location : $it")
+
+                        saveUserToDatabase(it.toString())  //passing url of image to functin
                     }
 
                 }
+                .addOnFailureListener{
+                    Log.d("signup", "failed")
+                }
     }
-}
+
+    //method for saving data to firebase
+    private fun saveUserToDatabase(profileImage: String){
+        val uid=FirebaseAuth.getInstance().uid ?: ""
+        val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+        val user = User(uid,username.text.toString(), profileImage)
+        ref.setValue(user)
+                .addOnSuccessListener {
+                    Log.d("signup", "Saved user to firebase")
+                }
+                .addOnFailureListener{
+                    Log.d("signup", "failed Saving user to firebase")
+                }
+    }
+    }
+
+
+
+class  User(val uid:String, val username: String, val profileImage:String)
