@@ -12,7 +12,7 @@ class ActivityCSE : AppCompatActivity() {
         setContentView(R.layout.activity_cse)
 
         var buttontstaff=findViewById<Button>(R.id.buttontstaff)
-        buttontstaff.setOnClickListener{var i=Intent(this,ScrollingActivityCSE::class.java)
+        buttontstaff.setOnClickListener{var i=Intent(this,Staff_CSEActivity::class.java)
         startActivity(i)
         }
 

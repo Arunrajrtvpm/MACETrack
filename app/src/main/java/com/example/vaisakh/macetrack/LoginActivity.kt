@@ -29,9 +29,10 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
 
-        var button2 =findViewById<Button>(R.id.button2)
 
-        button2.setOnClickListener{ var i=Intent(this,Activity_signup::class.java)
+
+        No_account.setOnClickListener{
+            var i=Intent(this,Activity_signup::class.java)
             startActivity(i)}
 
     }
@@ -56,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
                     if (!it.isSuccessful) return@addOnCompleteListener
 
                     Toast.makeText(this,"Sucessfully login",Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, HomeActivity::class.java))
 
                 }
                 .addOnFailureListener{

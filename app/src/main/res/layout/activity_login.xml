@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="111dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_edittext"
         android:hint="UserName"
@@ -42,31 +42,34 @@
         android:id="@+id/Button1"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/pswdtext"
 
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/rounded_button"
         android:text="Submit"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/No_account"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_below="@+id/Button1"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="51dp"
         android:background="@android:color/holo_green_light"
-        android:text="Don't have an account?   Sign Up"
-        android:textAllCaps="false" />
+        android:text="Don't have an account?"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
