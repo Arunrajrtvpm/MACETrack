@@ -14,20 +14,6 @@ class Attendance_taking : AppCompatActivity() {
     lateinit var Name:String
     var Attendance:Int = 0
 
-/*
-      lateinit var Bstate:String
-
-       private fun ButtonState(view){
-           var checked:Boolean =(Attendance.isChecked)
-           if (checked) {
-               Bstate="Present"
-           }
-           else{
-               Bstate="Absent"
-           }
-
-       }*/
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_attendance_taking)

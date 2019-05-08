@@ -6,32 +6,32 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/KTU"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ktu_logo"
             android:title="KTU" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/KTU_portal"
+            android:icon="@drawable/ktu_logo"
+            android:title="KTU e-Governance Portal" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/MACE"
+            android:icon="@drawable/mace_logo"
+            android:title="MACE" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/Impulse"
+            android:icon="@drawable/impulse_logo"
+            android:title="Impulse" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/Google"
+                android:icon="@drawable/google_logo"
+                android:title="Google" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/Placement"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Placement" />
         </menu>
     </item>
 

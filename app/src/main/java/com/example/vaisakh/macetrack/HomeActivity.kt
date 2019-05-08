@@ -75,28 +75,29 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.KTU -> {
                 // Open the ktu page
-                var ktu=findViewById<View>(R.id.KTU)
-                ktu.setOnClickListener{
-                    startActivity(Intent(this,KTUWebView::class.java))
+                startActivity(Intent(this,KTUWebView::class.java))
+
                 }
 
-            }
-            R.id.nav_gallery -> {
+
+            R.id.KTU_portal -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.MACE -> {
 
             }
-            R.id.nav_manage -> {
+            R.id.Impulse -> {
 
             }
-            R.id.nav_share -> {
+            R.id.Google -> {
 
             }
-            R.id.nav_send -> {
+            R.id.Placement -> {
 
             }
-        }
+
+
+       }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

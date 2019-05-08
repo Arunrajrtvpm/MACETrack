@@ -11,6 +11,8 @@ class KTUWebView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ktuweb_view)
+
+        //Web view enabling
         mywebview = findViewById<WebView>(R.id.Webview)
         mywebview!!.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -18,6 +20,7 @@ class KTUWebView : AppCompatActivity() {
                 return true
             }
         }
-        mywebview!!.loadUrl("https://www.google.co.in/")
+        mywebview!!.loadUrl("https://ktu.edu.in/home.htm")
+        //
     }
 }

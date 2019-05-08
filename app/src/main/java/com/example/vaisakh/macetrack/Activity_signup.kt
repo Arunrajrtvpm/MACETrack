@@ -123,6 +123,8 @@ class Activity_signup : AppCompatActivity() {
                         Log.d("signup","File location : $it")
 
                         saveUserToDatabase(it.toString())  //passing url of image to functin
+                        //saveUserToDatabase()  //passing url of image to functin
+
                     }
 
                 }
@@ -132,12 +134,14 @@ class Activity_signup : AppCompatActivity() {
     }
 
     //method for saving data to firebase
+
     private fun saveUserToDatabase(profileImage: String){
+
         val uid=FirebaseAuth.getInstance().uid ?: ""
         val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        //val user = User(uid,username.text.toString(), profileImage)
-        val user = User(uid,username.text.toString())
+        val user = User(uid,username.text.toString(), profileImage)
+        //val user = User(uid,username.text.toString())
 
         ref.setValue(user)
                 .addOnSuccessListener {
@@ -149,6 +153,6 @@ class Activity_signup : AppCompatActivity() {
     }
     }
 
-//class  User(val uid:String, val username: String, val profileImage:String)
+class  User(val uid:String, val username: String, val profileImage:String)
 
-class  User(val uid:String, val username: String)
+//class  User(val uid:String, val username: String)
