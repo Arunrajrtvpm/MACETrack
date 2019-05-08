@@ -1,5 +1,6 @@
 package com.example.vaisakh.macetrack
 
+import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -40,6 +42,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+
     }
 
     override fun onBackPressed() {
@@ -69,8 +73,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.KTU -> {
+                // Open the ktu page
+                var ktu=findViewById<View>(R.id.KTU)
+                ktu.setOnClickListener{
+                    startActivity(Intent(this,KTUWebView::class.java))
+                }
+
             }
             R.id.nav_gallery -> {
 

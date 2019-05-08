@@ -136,7 +136,9 @@ class Activity_signup : AppCompatActivity() {
         val uid=FirebaseAuth.getInstance().uid ?: ""
         val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        val user = User(uid,username.text.toString(), profileImage)
+        //val user = User(uid,username.text.toString(), profileImage)
+        val user = User(uid,username.text.toString())
+
         ref.setValue(user)
                 .addOnSuccessListener {
                     Log.d("signup", "Saved user to firebase")
@@ -147,6 +149,6 @@ class Activity_signup : AppCompatActivity() {
     }
     }
 
+//class  User(val uid:String, val username: String, val profileImage:String)
 
-
-class  User(val uid:String, val username: String, val profileImage:String)
+class  User(val uid:String, val username: String)

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "754339993478-focqne9eqe3130iulfmko57rf2vosg1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vaisakh.macetrack",
+            "certificate_hash": "2eb16bea7a895fd7a43dfbc72dab76883f6ba85c"
+          }
+        },
+        {
           "client_id": "754339993478-qlcl0f66pej08i5vk08n4auj3map2p1v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "754339993478-q17udm84pkv2fu2ng1sqk5r76ic07bv2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
