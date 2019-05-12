@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".KTUWebView"></activity>
+        <activity android:name=".Attendance_view"></activity>
+        <activity android:name=".KTUWebView" />
         <activity android:name=".Attendance_taking" />
         <activity android:name=".MessengerActivity" />
         <activity android:name=".Staff_CSEActivity" />
@@ -27,10 +28,6 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ActivityCSE" />
-        <activity
-            android:name=".ScrollingActivityCSE"
-            android:label="@string/title_activity_scrolling_cse"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity_signup" />
     </application>
 

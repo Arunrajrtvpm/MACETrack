@@ -7,10 +7,13 @@ import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -23,8 +26,28 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         Track_button.setOnClickListener{
+
+            //  Creating a Alert dialog box
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+       builder.setTitle("Principal Login....")
+        val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
+        val editText  = dialogLayout.findViewById<EditText>(R.id.editText)
+        builder.setView(dialogLayout)
+        builder.setCancelable(false)
+        builder.setPositiveButton("OK") {
+            dialogInterface, i -> if(editText.text.toString() == "1234") {
             startActivity(Intent(this,MainActivity::class.java))
         }
+
+        else{
+            Toast.makeText(applicationContext, "Password Wrong", Toast.LENGTH_LONG).show()
+        }
+        }
+        builder.show()
+
+        }
+
 
         Attendance_button.setOnClickListener {
             startActivity(Intent(this,AttendanceActivity::class.java))

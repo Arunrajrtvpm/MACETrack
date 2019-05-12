@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         var buttonCSE =findViewById<Button>(R.id.buttonCSE)
         buttonCSE.setOnClickListener{var i=Intent(this,ActivityCSE::class.java)
             startActivity(i)

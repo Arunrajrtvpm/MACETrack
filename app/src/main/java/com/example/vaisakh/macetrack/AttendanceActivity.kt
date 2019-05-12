@@ -22,25 +22,36 @@ class AttendanceActivity : AppCompatActivity() {
 
             Take_attendance.setOnClickListener{
 
-             //   fun withEditText(view: View) {
+             //  Creating a Alert dialog box
                     val builder = AlertDialog.Builder(this)
                     val inflater = layoutInflater
-                    builder.setTitle("With EditText")
+                    builder.setTitle("Staff Login....")
                     val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
                     val editText  = dialogLayout.findViewById<EditText>(R.id.editText)
-                    builder.setPositiveButton("OK") { dialogInterface, i -> Toast.makeText(applicationContext, "EditText is " + editText.text.toString(), Toast.LENGTH_SHORT).show() }
+                    builder.setView(dialogLayout)
+                    builder.setCancelable(false)
+                    builder.setPositiveButton("OK") {
+                        dialogInterface, i -> if(editText.text.toString() == "1234") {
+                                                startActivity(Intent(this,Attendance_taking::class.java))
+                                                  }
+
+                                                else{
+                                                    Toast.makeText(applicationContext, "Password Wrong", Toast.LENGTH_LONG).show()
+                                                    }
+                    }
                     builder.show()
-               // }
 
-                if(editText.text.toString() == "1234") {
-                startActivity(Intent(this,Attendance_taking::class.java))
-            }
 
-        else{
-            Toast.makeText(applicationContext, "Password Wrong", Toast.LENGTH_LONG).show()
-        }
+
 
             }
+
+
+
+            View_attendance.setOnClickListener{
+                startActivity(Intent(this, Attendance_view::class.java))
+            }
+
 
 
     }
