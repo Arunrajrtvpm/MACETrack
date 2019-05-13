@@ -21,7 +21,7 @@ class Attendance_view : AppCompatActivity() {
 
 
     lateinit var ref: DatabaseReference
-    lateinit var status :String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,6 +105,8 @@ class Attendance_view : AppCompatActivity() {
         }
 
         Submit.setOnClickListener{
+
+            val status:String="Null"
 
             //Code for retriving data from firebase
             val ref= FirebaseDatabase.getInstance().getReference("Attendance_marking-$currentDate")
