@@ -123,6 +123,7 @@ class Attendance_view : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Data retrived",Toast.LENGTH_LONG).show()
                     Log.d("retrival","retrival Successfull")
                     val name=p0.child("name").getValue().toString()
+                    val state=p0.child("status").getValue()
                     if (p0!!.exists()){
                         for(h in p0.children){
                            // val status = h.getValue(SaveAttendance::class.java)
@@ -141,7 +142,7 @@ class Attendance_view : AppCompatActivity() {
             builder.setMessage("Branch    :$b \n" +
                     "Class    :$s \n" +
                     "Roll.No    :$r \n" +
-                    "\t"+status+":"+name+""+state+" ..............")
+                    "\t"+name+":"+status+""+state+" ..............")
             //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
             builder.setPositiveButton("Ok") { dialog, which ->
