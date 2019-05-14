@@ -12,6 +12,7 @@ import java.util.*
 class Attendance_taking : AppCompatActivity() {
     lateinit var RollNo:String
     lateinit var Name:String
+    val date:String = "0"
     var Attendance:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,14 +43,15 @@ class Attendance_taking : AppCompatActivity() {
     //Code for getting the date
         val sdf = SimpleDateFormat("MM/dd ")
         val currentDate = sdf.format(Date())
+        val date:String= currentDate.toString()
         Log.d("Date", "Date is $currentDate")
        // Toast.makeText(applicationContext,"Date is $currentDate",Toast.LENGTH_LONG).show()
 
 
-        val ref=FirebaseDatabase.getInstance().getReference("Attendance_marking-$currentDate")
+        val ref=FirebaseDatabase.getInstance().getReference("Attendance_marking")
         val Student_id=ref.push().key       //it will generate an unique id incide the database
 
-        val obj_attendance=SaveAttendance(RollNo,Name,Attendance)       //object of SaveAttendance class with the values
+        val obj_attendance=SaveAttendance(date,RollNo,Name,Attendance)       //object of SaveAttendance class with the values
 
         // val obj_attendance=SaveAttendance(RollNo,Student_id.toString(),Name,Attendance)       //object of SaveAttendance class with the values
 
@@ -58,7 +60,7 @@ class Attendance_taking : AppCompatActivity() {
         ref.child(RollNo.toString()).setValue(obj_attendance).addOnCompleteListener{
             Log.d("Attendance", "Adding attendance to firebase database")
 
-            Toast.makeText(applicationContext,"Successfully Marked Attendance",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"Successfully Marked Attendance of $date",Toast.LENGTH_LONG).show()
 
         }
 

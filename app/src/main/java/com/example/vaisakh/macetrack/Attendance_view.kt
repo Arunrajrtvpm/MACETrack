@@ -48,7 +48,7 @@ class Attendance_view : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            Toast.makeText(applicationContext,"You Selected${branches.get(position)}",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"You Selected  :${branches.get(position)}",Toast.LENGTH_LONG).show()
             b=branches.get(position)
                         }
 
@@ -64,7 +64,7 @@ class Attendance_view : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                Toast.makeText(applicationContext,"You Selected${sems.get(position)}",Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"You Selected  :${sems.get(position)}",Toast.LENGTH_LONG).show()
                 s=sems.get(position)
             }
 
@@ -81,7 +81,7 @@ class Attendance_view : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                Toast.makeText(applicationContext,"You Selected${rl_nos.get(position)}",Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"You Selected  :${rl_nos.get(position)}",Toast.LENGTH_LONG).show()
                 r=rl_nos.get(position)
             }
 
@@ -95,7 +95,7 @@ class Attendance_view : AppCompatActivity() {
         Button_Date.setOnClickListener{
             val now = Calendar.getInstance()
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
-                Toast.makeText(applicationContext,"Year :"+year+"\nMonth  :"+month+"\nDay"+dayOfMonth,Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"Year :"+year+"\nMonth  :"+month+"\nDay   :"+dayOfMonth,Toast.LENGTH_LONG).show()
 
             },
                     now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH))
@@ -106,19 +106,29 @@ class Attendance_view : AppCompatActivity() {
 
         Submit.setOnClickListener{
 
-            val status:String="Null"
+            val status:String="Present"
+            val state:Int=5
+            val name:String="Arun"
 
             //Code for retriving data from firebase
-            val ref= FirebaseDatabase.getInstance().getReference("Attendance_marking-$currentDate")
+            val ref= FirebaseDatabase.getInstance().getReference().child("Attendance_marking").child("1")
             ref.addValueEventListener(object :ValueEventListener{
                 override fun onCancelled(p0: DatabaseError) {
+                    Toast.makeText(applicationContext,"not retrived",Toast.LENGTH_LONG).show()
+                    Log.d("retrival","retrival failed")
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    Toast.makeText(applicationContext,"Data retrived",Toast.LENGTH_LONG).show()
+                    Log.d("retrival","retrival Successfull")
+                    val name=p0.child("name").getValue().toString()
                     if (p0!!.exists()){
-                      status= p0.toString()
+                        for(h in p0.children){
+                           // val status = h.getValue(SaveAttendance::class.java)
+                           // val state= h.getValue(SaveAttendance::class.java)
+                            val status =p0.child("status").getValue().toString()
+                        }
                     }
                 }
 
@@ -130,8 +140,8 @@ class Attendance_view : AppCompatActivity() {
             builder.setTitle("Your Attendance Status")
             builder.setMessage("Branch    :$b \n" +
                     "Class    :$s \n" +
-                    "Roll.No  :$r \n" +
-                    "\t"+status+" ..............")
+                    "Roll.No    :$r \n" +
+                    "\t"+status+":"+name+""+state+" ..............")
             //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
             builder.setPositiveButton("Ok") { dialog, which ->
